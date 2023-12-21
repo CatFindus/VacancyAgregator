@@ -3,14 +3,19 @@ package myorg.agregator.model;
 import myorg.agregator.vo.Vacancy;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class HHStrategy implements Strategy {
+    private final Logger logger = LoggerFactory.getLogger(HHStrategy.class);
+
     @Override
     public List<Vacancy> getVacancies(String searchString) {
+        logger.trace(ModelConstants.LOGGER_START_GETVACANCIES,this.getClass().getEnclosingMethod().getName(),searchString);
         List<Vacancy> vacancies = new ArrayList<>();
         boolean hasVacacies = true;
         for (int i = 0; hasVacacies; i++) {
@@ -31,9 +36,10 @@ public class HHStrategy implements Strategy {
                 }
             } catch (IOException e) {
                 hasVacacies=false;
-                e.printStackTrace();
+                logger.error(ModelConstants.LOGGER_IOERROR_GETVACANCIES, this.getClass().getEnclosingMethod().getName());
             }
         }
+        logger.trace(ModelConstants.LOGGER_END_GETVACANCIES, this.getClass().getEnclosingMethod().getName(),vacancies.size());
         return vacancies;
     }
 }

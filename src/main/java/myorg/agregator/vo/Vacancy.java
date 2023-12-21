@@ -1,6 +1,11 @@
 package myorg.agregator.vo;
 
+import myorg.agregator.model.ModelConstants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class Vacancy {
+    private static Logger logger = LoggerFactory.getLogger(Vacancy.class);
     private String title;
     private String salary;
     private String city;
@@ -18,6 +23,7 @@ public class Vacancy {
         this.companyName = companyName;
         this.siteName = siteName;
         this.url = url;
+        logger.debug(ModelConstants.LOGGER_DEBUG_VACANCY_CONSTRUCTOR, this);
     }
 
     public String getTitle() {

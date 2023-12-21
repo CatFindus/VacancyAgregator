@@ -3,13 +3,18 @@ package myorg.agregator.model;
 import myorg.agregator.vo.Vacancy;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SuperJobStrategy implements Strategy{
+    private final Logger logger = LoggerFactory.getLogger(SuperJobStrategy.class);
     @Override
     public List<Vacancy> getVacancies(String searchString) {
+        logger.trace(ModelConstants.LOGGER_START_GETVACANCIES,this.getClass().getEnclosingMethod().getName(),searchString);
         List<Vacancy> vacancies = new ArrayList<>();
         try {
             for (int i = 0; true; i++) {
@@ -29,8 +34,9 @@ public class SuperJobStrategy implements Strategy{
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(ModelConstants.LOGGER_IOERROR_GETVACANCIES, this.getClass().getEnclosingMethod().getName());
         }
+        logger.trace(ModelConstants.LOGGER_END_GETVACANCIES, this.getClass().getEnclosingMethod().getName(),vacancies.size());
         return vacancies;
     }
 }

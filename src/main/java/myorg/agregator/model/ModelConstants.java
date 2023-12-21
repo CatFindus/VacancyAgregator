@@ -52,6 +52,15 @@ public class ModelConstants {
     public static final String SUPERJOB_SALARY_NAME;
     public static final String SUPERJOB_COMPANY_NAME;
     public static final String SUPERJOB_SITE_NAME;
+    public static final String LOGGER_START_GETVACANCIES;
+    public static final String LOGGER_END_GETVACANCIES;
+    public static final String LOGGER_IOERROR_GETVACANCIES;
+    public static final String LOGGER_START_DOSEARCH;
+    public static final String LOGGER_END_DOSEARCH;
+    public static final String LOGGER_WARN_DOSEARCH;
+    public static final String LOGGER_DEBUG_DOSEARCH;
+    public static final String LOGGER_ERROR_MODEL_CONSTRUCTOR;
+    public static final String LOGGER_DEBUG_VACANCY_CONSTRUCTOR;
 
     static  {
         Properties properties = new Properties();
@@ -106,6 +115,15 @@ public class ModelConstants {
         SUPERJOB_SALARY_NAME=properties.getProperty("SUPERJOB_SALARY_NAME");  //"f-test-text-company-item-salary";
         SUPERJOB_SITE_NAME=properties.getProperty("SUPERJOB_SITE_NAME");  //"https://www.superjob.ru";
         SUPERJOB_CITY_NAME=properties.getProperty("SUPERJOB_CITY_NAME");  //"f-test-text-company-item-location";
+        LOGGER_START_GETVACANCIES=properties.getProperty("LOGGER_START_GETVACANCIES");
+        LOGGER_END_GETVACANCIES=properties.getProperty("LOGGER_END_GETVACANCIES");
+        LOGGER_IOERROR_GETVACANCIES=properties.getProperty("LOGGER_IOERROR_GETVACANCIES");
+        LOGGER_START_DOSEARCH= properties.getProperty("LOGGER_START_DOSEARCH");
+        LOGGER_END_DOSEARCH=properties.getProperty("LOGGER_END_DOSEARCH");
+        LOGGER_WARN_DOSEARCH=properties.getProperty("LOGGER_WARN_DOSEARCH");
+        LOGGER_DEBUG_DOSEARCH= properties.getProperty("LOGGER_DEBUG_DOSEARCH");
+        LOGGER_ERROR_MODEL_CONSTRUCTOR=properties.getProperty("LOGGER_ERROR_MODEL_CONSTRUCTOR");
+        LOGGER_DEBUG_VACANCY_CONSTRUCTOR=properties.getProperty("LOGGER_DEBUG_VACANCY_CONSTRUCTOR");
     }
 
     private ModelConstants() {
