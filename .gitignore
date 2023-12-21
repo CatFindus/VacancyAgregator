@@ -18,3 +18,6 @@ out/
 !**/src/test/**/out/
 
 /myorg.agregator.view.vacancies.html
+/logs/
+/java_pid8956.hprof
+/myorg.agregator.view.vacancies.html
