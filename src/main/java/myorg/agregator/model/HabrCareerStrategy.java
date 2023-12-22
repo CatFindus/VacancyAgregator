@@ -13,11 +13,13 @@ public class HabrCareerStrategy implements Strategy{
     private final Logger logger = LoggerFactory.getLogger(HabrCareerStrategy.class);
     @Override
     public List<Vacancy> getVacancies(String searchString) {
-        logger.trace(ModelConstants.LOGGER_START_GETVACANCIES,this.getClass().getEnclosingMethod().getName(),searchString);
+    String methodName = new Throwable().getStackTrace()[0].getMethodName();
+        logger.trace(ModelConstants.LOGGER_START_GETVACANCIES,methodName,searchString);
         List<Vacancy> vacancies = new ArrayList<>();
         try {
             for (int i = 1; true; i++) {
-                Document document = ModelDataLoader.getDocument(searchString.replaceAll(" ", "+"), i,ModelConstants.HABR_URL_FORMAT);
+                String request=String.format(ModelConstants.HABR_URL_FORMAT, i, searchString.replaceAll(" ", "+"));
+                Document document = ModelDataLoader.getDocument(request);
                 List<Element> elements = document.getElementsByClass(ModelConstants.HABR_SECTION_NAME);
                 if (elements.isEmpty()) break;
                 else {
@@ -35,11 +37,16 @@ public class HabrCareerStrategy implements Strategy{
                 }
             }
         } catch (IOException e) {
-            logger.error(ModelConstants.LOGGER_IOERROR_GETVACANCIES, this.getClass().getEnclosingMethod().getName());
+            logger.error(ModelConstants.LOGGER_IOERROR_GETVACANCIES, methodName);
         }
-        logger.trace(ModelConstants.LOGGER_END_GETVACANCIES, this.getClass().getEnclosingMethod().getName(),vacancies.size());
+        logger.trace(ModelConstants.LOGGER_END_GETVACANCIES, methodName,vacancies.size());
 
         return vacancies;
+    }
+
+    @Override
+    public String getName() {
+        return "HABRCareerStrategy";
     }
 
 }

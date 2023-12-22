@@ -2,6 +2,7 @@ package myorg.agregator.model;
 
 import myorg.agregator.vo.Vacancy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Provider {

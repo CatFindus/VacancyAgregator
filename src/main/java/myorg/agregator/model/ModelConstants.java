@@ -59,6 +59,7 @@ public class ModelConstants {
     public static final String LOGGER_END_DOSEARCH;
     public static final String LOGGER_WARN_DOSEARCH;
     public static final String LOGGER_DEBUG_DOSEARCH;
+    public static final String LOGGER_INFO_DOSEARCH;
     public static final String LOGGER_ERROR_MODEL_CONSTRUCTOR;
     public static final String LOGGER_DEBUG_VACANCY_CONSTRUCTOR;
 
@@ -71,7 +72,7 @@ public class ModelConstants {
         }
         MODEL_REFERRER=properties.getProperty("MODEL_REFERRER");  //"http://www.google.com";
         MODEL_USER_AGENT=properties.getProperty("MODEL_USER_AGENT");  //"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36";
-        HH_URL_FORMAT=properties.getProperty("HH_URL_FORMAT");  //"https://hh.ru/search/vacancy?text=java+%s&salary=&ored_clusters=true&area=2&hhtmFrom=vacancy_search_list&page=%d&items_on_page=20";
+        HH_URL_FORMAT=properties.getProperty("HH_URL_FORMAT");//"https://hh.ru/search/vacancy?text=%s&salary=&ored_clusters=true&area=2&hhtmFrom=vacancy_search_list&page=%d&items_on_page=20";
         HH_SECTION_KEY=properties.getProperty("HH_SECTION_KEY");  //"data-qa";
         HH_CITY_KEY=properties.getProperty("HH_CITY_KEY");  //"data-qa";
         HH_TITLE_KEY=properties.getProperty("HH_TITLE_KEY");  //"data-qa";
@@ -122,6 +123,7 @@ public class ModelConstants {
         LOGGER_END_DOSEARCH=properties.getProperty("LOGGER_END_DOSEARCH");
         LOGGER_WARN_DOSEARCH=properties.getProperty("LOGGER_WARN_DOSEARCH");
         LOGGER_DEBUG_DOSEARCH= properties.getProperty("LOGGER_DEBUG_DOSEARCH");
+        LOGGER_INFO_DOSEARCH= properties.getProperty("LOGGER_INFO_DOSEARCH");
         LOGGER_ERROR_MODEL_CONSTRUCTOR=properties.getProperty("LOGGER_ERROR_MODEL_CONSTRUCTOR");
         LOGGER_DEBUG_VACANCY_CONSTRUCTOR=properties.getProperty("LOGGER_DEBUG_VACANCY_CONSTRUCTOR");
     }

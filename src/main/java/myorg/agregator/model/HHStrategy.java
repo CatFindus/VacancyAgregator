@@ -15,12 +15,14 @@ public class HHStrategy implements Strategy {
 
     @Override
     public List<Vacancy> getVacancies(String searchString) {
-        logger.trace(ModelConstants.LOGGER_START_GETVACANCIES,this.getClass().getEnclosingMethod().getName(),searchString);
+        String methodName = new Throwable().getStackTrace()[0].getMethodName();
+        logger.trace(ModelConstants.LOGGER_START_GETVACANCIES,methodName,searchString);
         List<Vacancy> vacancies = new ArrayList<>();
         boolean hasVacacies = true;
         for (int i = 0; hasVacacies; i++) {
             try {
-                Document document = ModelDataLoader.getDocument(searchString, i,ModelConstants.HH_URL_FORMAT);
+                String request = String.format(ModelConstants.HH_URL_FORMAT, searchString.replaceAll(" ","+"), i);
+                Document document = ModelDataLoader.getDocument(request);
                 List<Element> elements = document.getElementsByAttributeValueContaining(ModelConstants.HH_SECTION_KEY,ModelConstants.HH_SECTION_NAME);
                 if(elements.isEmpty()) break;
                 else {
@@ -36,10 +38,15 @@ public class HHStrategy implements Strategy {
                 }
             } catch (IOException e) {
                 hasVacacies=false;
-                logger.error(ModelConstants.LOGGER_IOERROR_GETVACANCIES, this.getClass().getEnclosingMethod().getName());
+                logger.error(ModelConstants.LOGGER_IOERROR_GETVACANCIES, methodName);
             }
         }
-        logger.trace(ModelConstants.LOGGER_END_GETVACANCIES, this.getClass().getEnclosingMethod().getName(),vacancies.size());
+        logger.trace(ModelConstants.LOGGER_END_GETVACANCIES, methodName,vacancies.size());
         return vacancies;
+    }
+
+    @Override
+    public String getName() {
+        return "HHStrategy";
     }
 }

@@ -1,7 +1,6 @@
 package myorg.agregator.view;
 
 import myorg.agregator.Controller;
-import myorg.agregator.model.ModelConstants;
 import myorg.agregator.vo.Vacancy;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -37,35 +36,35 @@ private final Logger logger = LoggerFactory.getLogger(HtmlView.class);
     @Override
     public void update(List<Vacancy> vacancies)
     {
-        logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, this.getClass().getEnclosingMethod().getName());
+        logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, "update");
         try {
             String s = getUpdatedFileContent(vacancies);
             updateFile(s);
         } catch (IOException e) {
-            logger.error(ViewConstants.LOGGER_ERROR_UPDATE_HTMLVIEW, this.getClass().getEnclosingMethod().getName());
+            logger.error(ViewConstants.LOGGER_ERROR_UPDATE_HTMLVIEW, "update");
         }
-        logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, this.getClass().getEnclosingMethod().getName());
+        logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, "update");
     }
-    public void userCitySelectEmulationMethod(String request) {
-        logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, this.getClass().getEnclosingMethod().getName());
+    public void userEmulationMethod(String request) {
+        logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, "userCitySelectEmulationMethod");
         controller.doSearch(request);
-        logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, this.getClass().getEnclosingMethod().getName());
+        logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, "userCitySelectEmulationMethod");
     }
     @Override
     public void setController(Controller controller) {
-        logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, this.getClass().getEnclosingMethod().getName());
+        logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, "setController");
         this.controller=controller;
-        logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, this.getClass().getEnclosingMethod().getName());
+        logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, "setController");
     }
     protected Document getDocument() throws IOException {
-        logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, this.getClass().getEnclosingMethod().getName());
+        logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, "getDocument");
         Document document = Jsoup.parse(new File(filePath), ViewConstants.HTMLVIEW_CHARSET);
-        logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, this.getClass().getEnclosingMethod().getName());
+        logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, "getDocument");
         return document;
     }
     private String getUpdatedFileContent(List<Vacancy> vacancies) {
-        logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, this.getClass().getEnclosingMethod().getName());
-        logger.debug(ViewConstants.LOGGER_DEBUG_INPUT_METHOD, this.getClass().getEnclosingMethod().getName(), vacancies);
+        logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, "getUpdatedFileContent");
+        logger.debug(ViewConstants.LOGGER_DEBUG_INPUT_METHOD, "getUpdatedFileContent", vacancies);
         try {
             Document doc = getDocument();
             Elements templateHidden = doc.getElementsByClass(ViewConstants.HTMLVIEW_REMOVABLE_CLASSNAME);
@@ -95,23 +94,23 @@ private final Logger logger = LoggerFactory.getLogger(HtmlView.class);
                 templateHidden.before(vacancyElement.outerHtml());
             }
             String htmlReturn = doc.html();
-            logger.debug(ViewConstants.LOGGER_DEBUG_RETURN_METHOD, this.getClass().getEnclosingMethod().getName(), htmlReturn);
-            logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, this.getClass().getEnclosingMethod().getName());
+            logger.debug(ViewConstants.LOGGER_DEBUG_RETURN_METHOD, "getUpdatedFileContent", htmlReturn);
+            logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, "getUpdatedFileContent");
             return htmlReturn;
         } catch (IOException e) {
-            logger.error(ViewConstants.LOGGER_ERROR_UPDATE_HTMLVIEW, this.getClass().getEnclosingMethod().getName());
+            logger.error(ViewConstants.LOGGER_ERROR_UPDATE_HTMLVIEW, "getUpdatedFileContent");
         }
-        logger.warn(ViewConstants.LOGGER_WARN_GETUPDATEDFILECONTENT, this.getClass().getEnclosingMethod().getName());
+        logger.warn(ViewConstants.LOGGER_WARN_GETUPDATEDFILECONTENT, "getUpdatedFileContent");
         return "";
     }
     private void updateFile(String string) throws IOException {
-        logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, this.getClass().getEnclosingMethod().getName());
+        logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, "updateFile");
         try(FileOutputStream out = new FileOutputStream(filePath);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(out))) {
             writer.write(string);
             writer.flush();
         }
-        logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, this.getClass().getEnclosingMethod().getName());
+        logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, "updateFile");
     }
 
 }

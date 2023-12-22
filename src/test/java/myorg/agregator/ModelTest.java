@@ -13,7 +13,6 @@ import org.mockito.Mock;
 import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -55,8 +54,8 @@ class ModelTest {
     void hhModelTest() throws IOException {
         Document document = Jsoup.parse(new File("src/test/resources/HHStrategyTest.html"));
         try(MockedStatic<ModelDataLoader> mocked = Mockito.mockStatic(ModelDataLoader.class)) {
-            mocked.when(() -> ModelDataLoader.getDocument("Java",0, ModelConstants.HH_URL_FORMAT)).thenReturn(document);
-            mocked.when(() -> ModelDataLoader.getDocument("Java",1, ModelConstants.HH_URL_FORMAT)).thenReturn(Jsoup.parse(""));
+            mocked.when(() -> ModelDataLoader.getDocument(String.format(ModelConstants.HH_URL_FORMAT, "Java", 0))).thenReturn(document);
+            mocked.when(() -> ModelDataLoader.getDocument(String.format(ModelConstants.HH_URL_FORMAT, "Java", 1))).thenReturn(Jsoup.parse(""));
             HHStrategy hhStrategy = new HHStrategy();
             List<Vacancy> vacancies = hhStrategy.getVacancies("Java");
             assertEquals(3, vacancies.size());
@@ -75,8 +74,8 @@ class ModelTest {
     void habrModelTest() throws IOException {
         Document document= Jsoup.parse(new File("src/test/resources/HABRStrategyTest.html"));
         try(MockedStatic<ModelDataLoader> mocked = Mockito.mockStatic(ModelDataLoader.class)) {
-            mocked.when(() -> ModelDataLoader.getDocument("Java", 1, ModelConstants.HABR_URL_FORMAT)).thenReturn(document);
-            mocked.when(() -> ModelDataLoader.getDocument("Java", 2, ModelConstants.HABR_URL_FORMAT)).thenReturn(Jsoup.parse(""));
+            mocked.when(() -> ModelDataLoader.getDocument(String.format(ModelConstants.HABR_URL_FORMAT, 1, "Java"))).thenReturn(document);
+            mocked.when(() -> ModelDataLoader.getDocument(String.format(ModelConstants.HABR_URL_FORMAT, 2, "Java"))).thenReturn(Jsoup.parse(""));
             HabrCareerStrategy habrStrategy = new HabrCareerStrategy();
             List<Vacancy> vacancies = habrStrategy.getVacancies("Java");
             assertEquals(4, vacancies.size());
@@ -94,8 +93,8 @@ class ModelTest {
     void linkedInModelTest() throws IOException {
         Document document= Jsoup.parse(new File("src/test/resources/LinkedInStrategyTest.html"));
         try(MockedStatic<ModelDataLoader> mocked = Mockito.mockStatic(ModelDataLoader.class)) {
-            mocked.when(() -> ModelDataLoader.getDocument("Java", 0, ModelConstants.LINKEDIN_URL_FORMAT)).thenReturn(document);
-            mocked.when(() -> ModelDataLoader.getDocument("Java", 1, ModelConstants.LINKEDIN_URL_FORMAT)).thenReturn(Jsoup.parse(""));
+            mocked.when(() -> ModelDataLoader.getDocument(String.format(ModelConstants.LINKEDIN_URL_FORMAT, "Java", 0))).thenReturn(document);
+            mocked.when(() -> ModelDataLoader.getDocument(String.format(ModelConstants.LINKEDIN_URL_FORMAT, "Java", 1))).thenReturn(Jsoup.parse(""));
             LinkedinStrategy strategy = new LinkedinStrategy();
             List<Vacancy> vacancies = strategy.getVacancies("Java");
             assertEquals(2, vacancies.size());
@@ -112,11 +111,11 @@ class ModelTest {
     void superJobModelTest() throws IOException {
         Document document= Jsoup.parse(new File("src/test/resources/SuperJobStrategyTest.html"));
         try(MockedStatic<ModelDataLoader> mocked = Mockito.mockStatic(ModelDataLoader.class)) {
-            mocked.when(() -> ModelDataLoader.getDocument("Java", 0, ModelConstants.SUPERJOB_URL_FORMAT)).thenReturn(document);
-            mocked.when(() -> ModelDataLoader.getDocument("Java", 1, ModelConstants.SUPERJOB_URL_FORMAT)).thenReturn(Jsoup.parse(""));
+            mocked.when(() -> ModelDataLoader.getDocument(String.format(ModelConstants.SUPERJOB_URL_FORMAT, "Java", 1))).thenReturn(document);
+            mocked.when(() -> ModelDataLoader.getDocument(String.format(ModelConstants.SUPERJOB_URL_FORMAT, "Java", 2))).thenReturn(Jsoup.parse(""));
             SuperJobStrategy strategy = new SuperJobStrategy();
             List<Vacancy> vacancies = strategy.getVacancies("Java");
-            assertEquals(5, vacancies.size());
+            assertEquals(6, vacancies.size());
             assertEquals("Java Senior разработчик",vacancies.get(0).getTitle());
             assertEquals("400 000 — 450 000 ₽/месяц",vacancies.get(0).getSalary());
             assertEquals("Москва Кутузовская",vacancies.get(0).getCity());

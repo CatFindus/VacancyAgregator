@@ -7,8 +7,8 @@ import java.io.IOException;
 
 public class ModelDataLoader {
     private ModelDataLoader() {}
-    public static Document getDocument(String searchString, int page, String urlAddress) throws IOException {
-        return Jsoup.connect(String.format(urlAddress,page, searchString))
+    public static Document getDocument(String urlAddress) throws IOException {
+        return Jsoup.connect(urlAddress)
                 .userAgent(ModelConstants.MODEL_USER_AGENT)
                 .referrer(ModelConstants.MODEL_REFERRER)
                 .get();

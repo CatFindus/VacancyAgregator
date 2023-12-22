@@ -22,15 +22,17 @@ public class Model {
     }
 
     public void doSearch(String searchRequest) {
-        logger.trace(ModelConstants.LOGGER_START_DOSEARCH, this.getClass().getEnclosingMethod().getName(), searchRequest);
+        String methodName = new Throwable().getStackTrace()[0].getMethodName();
+        logger.trace(ModelConstants.LOGGER_START_DOSEARCH, methodName, searchRequest);
         List<Vacancy> vacancies = new ArrayList<>();
         for (Provider provider : providers) {
             List<Vacancy> providerVacancies = provider.getVacancies(searchRequest);
             if(providerVacancies!=null && !providerVacancies.isEmpty()) vacancies.addAll(providerVacancies);
-            else logger.warn(ModelConstants.LOGGER_WARN_DOSEARCH, provider.getStrategy().getClass().getSimpleName());
+            else logger.warn(ModelConstants.LOGGER_WARN_DOSEARCH, provider.getStrategy().getName());
         }
+        logger.info(ModelConstants.LOGGER_INFO_DOSEARCH, searchRequest, vacancies.size());
         view.update(vacancies);
         logger.debug(ModelConstants.LOGGER_DEBUG_DOSEARCH, vacancies);
-        logger.trace(ModelConstants.LOGGER_END_DOSEARCH, this.getClass().getEnclosingMethod().getName());
+        logger.trace(ModelConstants.LOGGER_END_DOSEARCH, methodName);
     }
 }

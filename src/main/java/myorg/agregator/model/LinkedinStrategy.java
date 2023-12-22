@@ -5,7 +5,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +13,13 @@ public class LinkedinStrategy implements Strategy{
     private final Logger logger = LoggerFactory.getLogger(LinkedinStrategy.class);
     @Override
     public List<Vacancy> getVacancies(String searchString) {
-        logger.trace(ModelConstants.LOGGER_START_GETVACANCIES,this.getClass().getEnclosingMethod().getName(),searchString);
+        String methodName = new Throwable().getStackTrace()[0].getMethodName();
+        logger.trace(ModelConstants.LOGGER_START_GETVACANCIES,methodName,searchString);
         List<Vacancy> vacancies = new ArrayList<>();
         try {
             for (int i = 0; i<1; i++) {
-                Document document = ModelDataLoader.getDocument(searchString.replaceAll(" ", "%20"), i, ModelConstants.LINKEDIN_URL_FORMAT);
+                String request = String.format(ModelConstants.LINKEDIN_URL_FORMAT, searchString.replaceAll(" ", "+"), i);
+                Document document = ModelDataLoader.getDocument(request);
                 List<Element> elements = document.getElementsByClass(ModelConstants.LINKEDIN_SECTION_NAME);
                 if (elements.isEmpty()) break;
                 for (Element element: elements) {
@@ -35,9 +36,14 @@ public class LinkedinStrategy implements Strategy{
                 }
             }
         } catch (IOException e) {
-            logger.error(ModelConstants.LOGGER_IOERROR_GETVACANCIES, this.getClass().getEnclosingMethod().getName());
+            logger.error(ModelConstants.LOGGER_IOERROR_GETVACANCIES, methodName);
         }
-        logger.trace(ModelConstants.LOGGER_END_GETVACANCIES, this.getClass().getEnclosingMethod().getName(),vacancies.size());
+        logger.trace(ModelConstants.LOGGER_END_GETVACANCIES, methodName,vacancies.size());
         return vacancies;
+    }
+
+    @Override
+    public String getName() {
+        return "LinkedInStrategy";
     }
 }

@@ -35,7 +35,7 @@ public class ViewConstants {
         try(InputStream is = Aggregator.class.getClassLoader().getResource("view.properties").openStream()) {
             properties.load(is);
         } catch (IOException e) {
-            logger.error("Error to access properties file {}", ViewConstants.class.getSimpleName());
+            //logger.error("Error to access properties file ViewConstants");
         }
         HTMLVIEW_CHARSET= properties.getProperty("HTMLVIEW_CHARSET");
         HTMLVIEW_REMOVABLE_CLASSNAME= properties.getProperty("HTMLVIEW_REMOVABLE_CLASSNAME");
