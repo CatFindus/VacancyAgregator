@@ -1,8 +1,8 @@
-package myorg.agregator;
+package myorg.aggregator;
 
-import myorg.agregator.model.*;
-import myorg.agregator.view.View;
-import myorg.agregator.vo.Vacancy;
+import myorg.aggregator.model.*;
+import myorg.aggregator.view.View;
+import myorg.aggregator.vo.Vacancy;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.BeforeEach;

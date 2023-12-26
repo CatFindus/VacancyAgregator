@@ -1,7 +1,7 @@
-package myorg.agregator.view;
+package myorg.aggregator.view;
 
-import myorg.agregator.Controller;
-import myorg.agregator.vo.Vacancy;
+import myorg.aggregator.Controller;
+import myorg.aggregator.vo.Vacancy;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package myorg.agregator.view;
+package myorg.aggregator.view;
 
-import myorg.agregator.Controller;
-import myorg.agregator.vo.Vacancy;
+import myorg.aggregator.Controller;
+import myorg.aggregator.vo.Vacancy;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -21,7 +21,7 @@ private final String filePath;
 private final Logger logger = LoggerFactory.getLogger(HtmlView.class);
     public HtmlView() {
         filePath=ViewConstants.HTML_FILE_ADDR;
-        logger.debug(ViewConstants.LOGGER_DEBUG_CONSTRUCTOR_HTMLVIEW, filePath);
+        logger.info(ViewConstants.LOGGER_DEBUG_CONSTRUCTOR_HTMLVIEW, filePath);
         if(Files.notExists(Paths.get(filePath))) {
             try {
                 Files.copy(Path.of(ViewConstants.HTML_BACKUP_ADDR), Path.of(ViewConstants.HTML_FILE_ADDR));
@@ -29,8 +29,6 @@ private final Logger logger = LoggerFactory.getLogger(HtmlView.class);
                 logger.error(ViewConstants.LOGGER_DEBUG_CONSTRUCTOR_HTMLVIEW, filePath);
             }
         }
-        //String s=this.getClass().getPackage().getName().replaceAll("\\.", "/");
-        //filePath="src/main/java/"+s+"/vacancies.html";
     }
 
     @Override

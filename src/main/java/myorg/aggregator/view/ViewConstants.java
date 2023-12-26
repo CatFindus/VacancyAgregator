@@ -1,6 +1,6 @@
-package myorg.agregator.view;
+package myorg.aggregator.view;
 
-import myorg.agregator.Aggregator;
+import myorg.aggregator.Aggregator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

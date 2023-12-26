@@ -1,6 +1,6 @@
-package myorg.agregator.model;
+package myorg.aggregator.model;
 
-import myorg.agregator.Aggregator;
+import myorg.aggregator.Aggregator;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;

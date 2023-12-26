@@ -1,7 +1,7 @@
-package myorg.agregator.model;
+package myorg.aggregator.model;
 
-import myorg.agregator.view.View;
-import myorg.agregator.vo.Vacancy;
+import myorg.aggregator.view.View;
+import myorg.aggregator.vo.Vacancy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.ArrayList;

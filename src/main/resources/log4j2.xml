@@ -29,22 +29,22 @@
             <AppenderRef ref="ConsoleInfo"/>
             <AppenderRef ref="FileAppender"/>
         </Root>
-        <Logger name="myorg.agregator" level="${LogLevel}" additivity="false">
+        <Logger name="myorg.aggregator" level="${LogLevel}" additivity="false">
             <AppenderRef ref="ConsoleError"/>
             <AppenderRef ref="ConsoleInfo"/>
             <AppenderRef ref="FileAppender"/>
         </Logger>
-        <Logger name="myorg.agregator.model" level="${LogLevel}" additivity="false">
+        <Logger name="myorg.aggregator.model" level="${LogLevel}" additivity="false">
             <AppenderRef ref="ConsoleError"/>
             <AppenderRef ref="ConsoleInfo"/>
             <AppenderRef ref="FileAppender"/>
         </Logger>
-        <Logger name="myorg.agregator.view" level="${LogLevel}" additivity="false">
+        <Logger name="myorg.aggregator.view" level="${LogLevel}" additivity="false">
             <AppenderRef ref="ConsoleError"/>
             <AppenderRef ref="ConsoleInfo"/>
             <AppenderRef ref="FileAppender"/>
         </Logger>
-        <Logger name="myorg.agregator.vo" level="${LogLevel}" additivity="false">
+        <Logger name="myorg.aggregator.vo" level="${LogLevel}" additivity="false">
             <AppenderRef ref="ConsoleError"/>
             <AppenderRef ref="ConsoleInfo"/>
             <AppenderRef ref="FileAppender"/>

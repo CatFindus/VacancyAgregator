@@ -1,8 +1,8 @@
-    package myorg.agregator;
+    package myorg.aggregator;
 
 
-    import myorg.agregator.model.*;
-    import myorg.agregator.view.HtmlView;
+    import myorg.aggregator.model.*;
+    import myorg.aggregator.view.HtmlView;
     import org.slf4j.Logger;
     import org.slf4j.LoggerFactory;
 
@@ -11,10 +11,11 @@
     public static void main(String[] args) {
         logger.info("Running app");
         HtmlView view = new HtmlView();
-        Model model = new Model(view, new Provider(new LinkedinStrategy()), new Provider(new SuperJobStrategy()), new Provider(new HHStrategy()), new Provider(new HabrCareerStrategy()));
+        Model model = new Model(view, new Provider(new LinkedinStrategy()));//, new Provider(new SuperJobStrategy()), new Provider(new HHStrategy()), new Provider(new HabrCareerStrategy()));
         Controller controller = new Controller(model);
         view.setController(controller);
-        view.userEmulationMethod("java developer");
+        view.userEmulationMethod("java developer");  //java developer
         logger.info("Ending app");
+
     }
 }

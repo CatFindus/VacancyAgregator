@@ -1,6 +1,6 @@
-package myorg.agregator.vo;
+package myorg.aggregator.vo;
 
-import myorg.agregator.model.ModelConstants;
+import myorg.aggregator.model.ModelConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,7 +23,7 @@ public class Vacancy {
         this.companyName = companyName;
         this.siteName = siteName;
         this.url = url;
-        logger.debug(ModelConstants.LOGGER_DEBUG_VACANCY_CONSTRUCTOR, this);
+        //logger.debug(ModelConstants.LOGGER_DEBUG_VACANCY_CONSTRUCTOR, this);
     }
 
     public String getTitle() {

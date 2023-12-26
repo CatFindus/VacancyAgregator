@@ -1,4 +1,4 @@
-package myorg.agregator.model;
+package myorg.aggregator.model;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

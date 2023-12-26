@@ -1,6 +1,6 @@
-package myorg.agregator.model;
+package myorg.aggregator.model;
 
-import myorg.agregator.vo.Vacancy;
+import myorg.aggregator.vo.Vacancy;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.slf4j.Logger;

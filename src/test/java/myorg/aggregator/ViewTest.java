@@ -1,8 +1,6 @@
-package myorg.agregator;
+package myorg.aggregator;
 
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ViewTest {
 

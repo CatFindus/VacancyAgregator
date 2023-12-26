@@ -1,8 +1,7 @@
-package myorg.agregator.model;
+package myorg.aggregator.model;
 
-import myorg.agregator.vo.Vacancy;
+import myorg.aggregator.vo.Vacancy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Provider {

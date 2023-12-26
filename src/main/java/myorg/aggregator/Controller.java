@@ -1,6 +1,6 @@
-package myorg.agregator;
+package myorg.aggregator;
 
-import myorg.agregator.model.Model;
+import myorg.aggregator.model.Model;
 
 
 public class Controller {
