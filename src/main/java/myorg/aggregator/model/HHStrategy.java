@@ -15,11 +15,12 @@ public class HHStrategy implements Strategy {
 
     @Override
     public List<Vacancy> getVacancies(String searchString) {
-        String methodName = new Throwable().getStackTrace()[0].getMethodName();
+        String methodName = "getVacancies";
         logger.trace(ModelConstants.LOGGER_START_GETVACANCIES,methodName,searchString);
         List<Vacancy> vacancies = new ArrayList<>();
         boolean hasVacacies = true;
         for (int i = 0; hasVacacies; i++) {
+            logger.info(String.format("Page %d",i));
             try {
                 String request = String.format(ModelConstants.HH_URL_FORMAT, searchString.replaceAll(" ","+"), i);
                 Document document = ModelDataLoader.getDocument(request);

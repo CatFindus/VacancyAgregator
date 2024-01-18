@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Резульат поиска</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href=../resources/styles.css>
+    <link rel="stylesheet" href=../resources/table.css>
+    <script src="../resources/script.js" defer></script>
+    <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
+</head>
+<body class="bodyclass" onload="getVacancies();">
+<header class="main-header">
+    <table class="table_class">
+        <tr>
+            <td class="td_img">
+                <img class="logoimg" src="../resources/image_logo.png" alt="Logo was here">
+            </td>
+            <td class="td_text">
+                <span class="logospantop">Vacancy Aggregator</span>
+                <br>
+                <br>
+                <span class="logospanbot">Все вакансии в одном месте</span>
+            </td>
+            <td>
+                <ul>
+                    <li><a href="../index.jsp">Main</a></li>
+                    <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+                    <li><a href="https://dzen.ru/?yredirect=true&clid=2261452&win=600">Save result</a></li>
+                    <li><a href="https://dzen.ru/?yredirect=true&clid=2261452&win=600">Load result</a></li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</header>
+<div>
+    <nav class="border"></nav>
+    <aside class="border"></aside>
+    <section class="section_search_class">
+        <div>
+            <label for="id_count">Count per page:</label><select name="count" id="id_count" onchange="goToPage(0)">
+            <option value="10">10</option>
+            <option value="20" selected="selected">20</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select>
+        </div>
+        <table class="table_table">
+            <thead>
+                <tr>
+                    <th class="table_th">№ п/п</th>
+                    <th class="table_th">Сайт</th>
+                    <th class="table_th">Ваканисия</th>
+                    <th class="table_th">Заработная плата</th>
+                    <th class="table_th">Компания</th>
+                    <th class="table_th">Город</th>
+                </tr>
+            </thead>
+            <tbody id="tbody" class="table_tbody">
+
+            </tbody>
+        </table>
+    </section>
+</div>
+<footer class="footerclass">
+    <div id="page_count">
+
+    </div>
+</footer>
+</body>
+</html>

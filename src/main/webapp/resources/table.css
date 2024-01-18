@@ -1,0 +1,53 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+.table_table {
+    border-collapse: collapse;
+    margin-left: 5%;
+    margin-top: 1%;
+    position: page;
+    width: 90%;
+    background-color: rgba(0, 0, 0, 0.72);
+    border-radius:20px;
+}
+.table_th {
+    border-bottom: 1px solid #364043;
+    color: #E2B842;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    text-align: left;
+}
+.table_td {
+    color: #fff;
+    font-weight: 400;
+    padding: 0.65em 1em;
+}
+.disabled td {
+    color: #4F5F64;
+}
+.table_tbody tr {
+    transition: background 0.25s ease;
+}
+.table_tbody tr:hover {
+    background-color: #b0b0b0;
+    color: white;
+    box-shadow: rgb(176, 176, 176) 0 4px 15px;
+    transform: translateY(-3px);
+}
+.tdNum {
+    width: 3%;
+}
+.tdSite {
+    width: 7%;
+}
+.tdTitle {
+    width: 30%;
+}
+.tdSalary {
+    width: 12%;
+}
+.tdCompany {
+    width: 12%;
+}
+.tdCity {
+    width: 12%;
+}

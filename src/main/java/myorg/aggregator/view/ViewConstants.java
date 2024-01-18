@@ -28,7 +28,9 @@ public class ViewConstants {
     public static final String LOGGER_DEBUG_RETURN_METHOD;
     public static final String LOGEER_ERROR_GETUPDATEDFILECONTENT;
     public static final String LOGGER_WARN_GETUPDATEDFILECONTENT;
-    private static final Logger logger = LoggerFactory.getLogger(ViewConstants.class);
+    public static final String LOGGER_JSONVIEW_WARN_ERROR_TO_CREATE_VACANCYREQUEST;
+    public static final String LOGGER_JSONVIEW_WARN_SEND_ERROR;
+    public static final String LOGGER_JSONVIEW_ERROR_CREATE_JSON_RESPONCE_DATA;
 
     static {
         Properties properties = new Properties();
@@ -56,6 +58,9 @@ public class ViewConstants {
         LOGGER_TRACE_END_METHOD = properties.getProperty("LOGGER_TRACE_END_METHOD");
         LOGEER_ERROR_GETUPDATEDFILECONTENT= properties.getProperty("LOGEER_ERROR_GETUPDATEDFILECONTENT");
         LOGGER_WARN_GETUPDATEDFILECONTENT= properties.getProperty("LOGGER_WARN_GETUPDATEDFILECONTENT");
+        LOGGER_JSONVIEW_WARN_ERROR_TO_CREATE_VACANCYREQUEST = properties.getProperty("LOGGER_JSONVIEW_WARN_ERROR_TO_CREATE_VACANCYREQUEST");
+        LOGGER_JSONVIEW_WARN_SEND_ERROR = properties.getProperty("LOGGER_JSONVIEW_WARN_SEND_ERROR");
+        LOGGER_JSONVIEW_ERROR_CREATE_JSON_RESPONCE_DATA  = properties.getProperty("LOGGER_JSONVIEW_ERROR_CREATE_JSON_RESPONCE_DATA");
     }
     private ViewConstants() {}
 }

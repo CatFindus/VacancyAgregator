@@ -1,4 +1,4 @@
-package myorg.aggregator;
+package myorg.aggregator.controller;
 
 import myorg.aggregator.model.Model;
 

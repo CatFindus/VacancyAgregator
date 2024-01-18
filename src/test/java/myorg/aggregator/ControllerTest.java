@@ -1,5 +1,6 @@
 package myorg.aggregator;
 
+import myorg.aggregator.controller.Controller;
 import myorg.aggregator.model.Model;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

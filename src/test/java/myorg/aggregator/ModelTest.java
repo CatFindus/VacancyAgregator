@@ -125,23 +125,6 @@ class ModelTest {
         }
     }
 
-
-    @Test
-    @DisplayName("doSearch Provider Test")
-    void doSearchProviderTest() {
-        Mockito.when(mockHHStrategy.getVacancies(any())).thenReturn(hhVacancies);
-        Mockito.when(mockHABRCareerStrategy.getVacancies(any())).thenReturn(habrVacancies);
-        Mockito.when(mockLinkedinStrategy.getVacancies(any())).thenReturn(liVacancies);
-        Mockito.when(mockSuperJobStrategy.getVacancies(any())).thenReturn(sjVacancies);
-        Provider hhProvider = new Provider(mockHHStrategy);
-        Provider habrProvider = new Provider(mockHABRCareerStrategy);
-        Provider liProvider = new Provider(mockLinkedinStrategy);
-        Provider sjProvider = new Provider(mockSuperJobStrategy);
-        assertEquals(hhVacancies, hhProvider.getVacancies("any Search"));
-        assertEquals(habrVacancies, habrProvider.getVacancies("any Search"));
-        assertEquals(liVacancies, liProvider.getVacancies("any Search"));
-        assertEquals(sjVacancies, sjProvider.getVacancies("any Search"));
-    }
     @Test
     @DisplayName("doSearch Model Test")
     void doSearchModelTest() {
@@ -155,7 +138,7 @@ class ModelTest {
         Mockito.when(mockLinkedinStrategy.getVacancies(anyString())).thenReturn(liVacancies);
         Mockito.when(mockSuperJobStrategy.getVacancies(anyString())).thenReturn(sjVacancies);
         Mockito.doNothing().when(mockView).update(anyList());
-        Model testModel = new Model(mockView, new Provider(mockHHStrategy), new Provider(mockLinkedinStrategy), new Provider(mockHABRCareerStrategy), new Provider(mockSuperJobStrategy));
+        Model testModel = new Model(mockView, mockHHStrategy, mockLinkedinStrategy, mockHABRCareerStrategy, mockSuperJobStrategy);
         testModel.doSearch("any Search");
         Mockito.verify(mockView, Mockito.times(1)).update(summaryVacancies);
     }

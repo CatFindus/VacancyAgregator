@@ -2,9 +2,8 @@
 
 plugins {
     id 'java'
-    id 'java-library'
     id 'application'
-    //id 'war'
+    id 'war'
 }
 
 wrapper {
@@ -30,19 +29,23 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '5.8.0'
     testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '5.8.0'
-    //compileOnly group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.0.0'
-
+    implementation group: 'jakarta.servlet', name: 'jakarta.servlet-api', version: '6.0.0'
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.16.1'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.16.1'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.16.1'
 }
 
 test {
     useJUnitPlatform()
 }
-
+/*
 configurations {
     externalLib.extendsFrom(implementation)
 }
 
-/*task copyDependencies(type: Copy) {
+task copyDependencies(type: Copy) {
    from configurations.externalLib{
             into "${buildDir}/libs/dependencies/"
             //exclude('<if any jars need to be excluded>')
@@ -50,7 +53,7 @@ configurations {
 }*/
 
 
-
+/*
 jar {
     archiveBaseName = 'AggregatorApp'
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
@@ -76,3 +79,4 @@ task customFatJar(type: Jar) {
     from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
     with jar
 }
+*/

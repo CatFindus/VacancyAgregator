@@ -1,0 +1,404 @@
+.href_class{
+    font-family: "Cascadia Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+    color: #F5F5FA;
+}
+.main-header {
+    background-color: #1A1A1A;
+    height: 20.5%;
+}
+.table_class{
+    height: 35%;
+}
+.td_text{
+    width: auto;
+    height: max-content;
+}
+.td_img{
+    width: 10%;
+    height: auto;
+}
+.logoimg {
+    width: 100%;
+    height: auto;
+    opacity: 70%;
+}
+.logospantop{
+    color: #F5F5FA;
+    font-family: "Cascadia Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+    font-size: 3rem;
+}
+.logospanbot{
+    color: #F5F5FA;
+    vertical-align: center;
+    font-family: "Cascadia Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+    font-size: 2rem;
+}
+.border{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.sectionclass{
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    height: 65%;
+}
+.footerclass {
+    background-color: #1A1A1A;
+    height: 15%;
+}
+.footer_img{
+    height: 100px;
+    width: auto;
+}
+.footer_border{
+    margin-left: 10%;
+    margin-right: 10%;
+    align-items: center;
+}
+.footer_border_after{
+    width: 20%;
+}
+.welcome_class{
+    margin-top: 2%;
+    color: #1a0101;
+    font-family: "Cascadia Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+    font-size: 1rem;
+}
+.searchclass{
+    margin-top: 2%;
+    color: #1a0101;
+    font-family: "Cascadia Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+    font-size: 1rem;
+}
+.toolbox_class{
+    margin-top: 1%;
+    color: #1a0101;
+    font-family: "Cascadia Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+    font-size: 1rem;
+    width: 50%;
+}
+.button_class {
+    margin-top: 1%;
+    color: #1a0101;
+    font-family: "Cascadia Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+    font-size: 1rem;
+}
+.backimg{
+    background-image: url(Bg.jpg);
+    background-position: top;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height:60vh;
+    font-family: 'Noto Sans', sans-serif;
+}
+.backimg_login{
+    background-image: url(Bg.jpg);
+    background-position: top;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height:78vh;
+    font-family: 'Noto Sans', sans-serif;
+}
+.index_button_search{
+width: 70%;
+}
+.login_buttons{
+width: 100px;
+}
+.button-28 {
+appearance: none;
+background-color: transparent;
+border: 2px solid #1A1A1A;
+border-radius: 15px;
+box-sizing: border-box;
+color: #858585;
+cursor: pointer;
+display: inline-block;
+font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+font-size: 16px;
+font-weight: 600;
+line-height: normal;
+min-height: 60px;
+min-width: 60px;
+outline: none;
+padding: 16px 24px;
+text-align: center;
+text-decoration: none;
+transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+user-select: none;
+-webkit-user-select: none;
+touch-action: manipulation;
+will-change: transform;
+}
+
+.button-28:disabled {
+    pointer-events: none;
+    color: black;
+}
+
+.button-28:hover {
+    color: #fff;
+    background-color: #1A1A1A;
+    box-shadow: rgba(0, 0, 0, 0.75) 0 8px 15px;
+    transform: translateY(-2px);
+}
+
+.button-28:active {
+    box-shadow: none;
+    transform: translateY(0);
+}
+.text-center{
+    color:#fff;
+    text-transform:uppercase;
+    font-size: 23px;
+    margin: -30px 0 20px 0;
+    display: block;
+    text-align: center;
+}
+.box{
+    position:absolute;
+    width: 30%;
+    left:50%;
+    top:45%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.72);
+    border-radius:20px;
+    padding:50px 170px;
+}
+.input-container{
+    position:relative;
+    margin-bottom:5px;
+}
+.input-container label{
+    position:absolute;
+    top:0px;
+    left:0px;
+    font-size:14px;
+    color:#fff;
+    pointer-event:none;
+    transition: all 0.5s ease-in-out;
+}
+.input-container input{
+    border:0;
+    border-bottom:2px solid #555;
+    background:transparent;
+    width:100%;
+    padding:8px 0 5px 0;
+    font-size:16px;
+    color:#fff;
+}
+.input-container input:focus{
+    border:none;
+    outline:none;
+    border-bottom:1px solid #e74c3c;
+}
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+    top:-12px;
+    font-size:12px;
+
+}
+
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+.checkbox-wrapper-14{
+    color: #F5F5FA;
+}
+    .checkbox-wrapper-14 input[type=checkbox] {
+        --active: #e74c3c;
+        --active-inner: #fff;
+        --focus: 2px rgba(39, 94, 254, .3);
+        --border: #BBC1E1;
+        --border-hover: #e74c3c;
+        --background: #2e2f2d;
+        --disabled: #F6F8FF;
+        --disabled-inner: #E1E6F9;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        height: 21px;
+        outline: none;
+        display: inline-block;
+        vertical-align: top;
+        position: relative;
+        margin: 0;
+        cursor: pointer;
+        border: 2px solid var(--bc, var(--border));
+        background: var(--b, var(--background));
+        transition: background 0.3s, border-color 0.3s, box-shadow 0.2s;
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:after {
+        content: "";
+        display: block;
+        left: 0;
+        top: 0;
+        position: absolute;
+        transition: transform var(--d-t, 0.3s) var(--d-t-e, ease), opacity var(--d-o, 0.2s);
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:checked {
+        --b: var(--active);
+        --bc: var(--active);
+        --d-o: .3s;
+        --d-t: .6s;
+        --d-t-e: cubic-bezier(.2, .85, .32, 1.2);
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:disabled {
+        --b: var(--disabled);
+        cursor: not-allowed;
+        opacity: 0.9;
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:disabled:checked {
+        --b: var(--disabled-inner);
+        --bc: var(--border);
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:disabled + label {
+        cursor: not-allowed;
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:hover:not(:checked):not(:disabled) {
+        --bc: var(--border-hover);
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:focus {
+        box-shadow: 0 0 0 var(--focus);
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:not(.switch) {
+        width: 21px;
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:not(.switch):after {
+        opacity: var(--o, 0);
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:not(.switch):checked {
+        --o: 1;
+    }
+    .checkbox-wrapper-14 input[type=checkbox] + label {
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        margin-left: 4px;
+    }
+
+    .checkbox-wrapper-14 input[type=checkbox]:not(.switch) {
+        border-radius: 7px;
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:not(.switch):after {
+        width: 5px;
+        height: 9px;
+        border: 2px solid var(--active-inner);
+        border-top: 0;
+        border-left: 0;
+        left: 7px;
+        top: 4px;
+        transform: rotate(var(--r, 20deg));
+    }
+    .checkbox-wrapper-14 input[type=checkbox]:not(.switch):checked {
+        --r: 43deg;
+    }
+    .checkbox-wrapper-14 input[type=checkbox].switch {
+        width: 38px;
+        border-radius: 11px;
+    }
+    .checkbox-wrapper-14 input[type=checkbox].switch:after {
+        left: 2px;
+        top: 2px;
+        border-radius: 50%;
+        width: 17px;
+        height: 17px;
+        background: var(--ab, var(--border));
+        transform: translateX(var(--x, 0));
+    }
+    .checkbox-wrapper-14 input[type=checkbox].switch:checked {
+        --ab: var(--active-inner);
+        --x: 17px;
+    }
+    .checkbox-wrapper-14 input[type=checkbox].switch:disabled:not(:checked):after {
+        opacity: 0.8;
+    }
+}
+
+.checkbox-wrapper-14 * {
+    box-sizing: inherit;
+}
+.checkbox-wrapper-14 *:before,
+.checkbox-wrapper-14 *:after {
+    box-sizing: inherit;
+}
+.table_search_class{
+ border: 1px solid black;
+
+}
+.section_search_class {
+    background-color: #2a2a2a;
+}
+.column_class {
+    color: #F5F5FA;
+    border: 1px solid black;
+    font-family: Arial, system-ui;
+}
+.column_class1 {
+    width: 3%;
+    text-align: center;
+}
+.column_class2 {
+    width: 10%;
+    text-align: center;
+}
+.column_class3 {
+    width: 20%;
+}
+.column_class4 {
+    width: 15%;
+    text-align: center;
+}
+.column_class5 {
+    width: 15%;
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    float: right;
+
+}
+li a {
+    display: block;
+    width: 130px;
+    display: block;
+    color: #ffffff;
+    font-family: "Cascadia Code",Consolas,Monaco,"Andale Mono","Ubuntu Mono",monospace;
+    padding: 8px 16px;
+    text-decoration: none;
+    float: right;
+    background-color: #212121;
+}
+li a:hover {
+    background-color: #b0b0b0;
+    color: white;
+    box-shadow: rgb(176, 176, 176) 0 4px 15px;
+    transform: translateY(-6px);
+}
+.login_button_login {
+    float: left;
+}
+.login_button_register {
+    float: right;
+}
+#loading_img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.bodyclass{
+    background-color: #2e2f2d;
+}
+.footerclass {
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    min-height: calc(26vh - 80px);
+}
+.deletable_td {
+    color: #F5F5FA;
+}
+

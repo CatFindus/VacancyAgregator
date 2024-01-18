@@ -10,25 +10,25 @@ import java.util.List;
 public class Model {
     private final Logger logger = LoggerFactory.getLogger(Model.class);
     private final View view;
-    private final Provider[] providers;
+    private final Strategy[] strategies;
 
-    public Model(View view, Provider... providers) {
-        if (view == null || providers == null || providers.length == 0) {
-            logger.error(ModelConstants.LOGGER_ERROR_MODEL_CONSTRUCTOR, view, providers);
+    public Model(View view, Strategy... strategies) {
+        if (view == null || strategies == null || strategies.length == 0) {
+            logger.error(ModelConstants.LOGGER_ERROR_MODEL_CONSTRUCTOR, view, strategies);
             throw new IllegalArgumentException();
         }
         this.view = view;
-        this.providers = providers;
+        this.strategies = strategies;
     }
 
     public void doSearch(String searchRequest) {
         String methodName = new Throwable().getStackTrace()[0].getMethodName();
         logger.trace(ModelConstants.LOGGER_START_DOSEARCH, methodName, searchRequest);
         List<Vacancy> vacancies = new ArrayList<>();
-        for (Provider provider : providers) {
-            List<Vacancy> providerVacancies = provider.getVacancies(searchRequest);
+        for (Strategy strategy : strategies) {
+            List<Vacancy> providerVacancies = strategy.getVacancies(searchRequest);
             if(providerVacancies!=null && !providerVacancies.isEmpty()) vacancies.addAll(providerVacancies);
-            else logger.warn(ModelConstants.LOGGER_WARN_DOSEARCH, provider.getStrategy().getName());
+            else logger.warn(ModelConstants.LOGGER_WARN_DOSEARCH, strategy.getName());
         }
         logger.info(ModelConstants.LOGGER_INFO_DOSEARCH, searchRequest, vacancies.size());
         view.update(vacancies);

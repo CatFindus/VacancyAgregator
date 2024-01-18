@@ -1,7 +1,8 @@
 package myorg.aggregator.view;
 
-import myorg.aggregator.Controller;
+import myorg.aggregator.controller.Controller;
 import myorg.aggregator.vo.Vacancy;
+import myorg.aggregator.vo.VacancyRequest;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -19,7 +20,9 @@ public class HtmlView implements View{
 private Controller controller;
 private final String filePath;
 private final Logger logger = LoggerFactory.getLogger(HtmlView.class);
-    public HtmlView() {
+private final VacancyRequest vacancyRequest;
+    public HtmlView(VacancyRequest vacancyRequest) {
+        this.vacancyRequest=vacancyRequest;
         filePath=ViewConstants.HTML_FILE_ADDR;
         logger.info(ViewConstants.LOGGER_DEBUG_CONSTRUCTOR_HTMLVIEW, filePath);
         if(Files.notExists(Paths.get(filePath))) {
@@ -43,9 +46,10 @@ private final Logger logger = LoggerFactory.getLogger(HtmlView.class);
         }
         logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, "update");
     }
-    public void userEmulationMethod(String request) {
+    @Override
+    public void doSearch() {
         logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, "userCitySelectEmulationMethod");
-        controller.doSearch(request);
+        controller.doSearch(vacancyRequest.getSearchRequest());
         logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, "userCitySelectEmulationMethod");
     }
     @Override
@@ -54,6 +58,12 @@ private final Logger logger = LoggerFactory.getLogger(HtmlView.class);
         this.controller=controller;
         logger.trace(ViewConstants.LOGGER_TRACE_END_METHOD, "setController");
     }
+
+    @Override
+    public VacancyRequest getVacancyRequest() {
+        return vacancyRequest;
+    }
+
     protected Document getDocument() throws IOException {
         logger.trace(ViewConstants.LOGGER_TRACE_START_METHOD, "getDocument");
         Document document = Jsoup.parse(new File(filePath), ViewConstants.HTMLVIEW_CHARSET);
